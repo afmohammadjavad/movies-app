@@ -1,6 +1,8 @@
+import PublicLayout from "../components/PublicLayout/PublicLayout";
 import MoviesList from "../components/MoviesList/MoviesList";
 import { IMovie } from "../interfaces/IMovie";
 
+//? Interface
 interface IProps {
   movies: {
     Search: IMovie[];
@@ -8,12 +10,20 @@ interface IProps {
   hasError: boolean;
 }
 
-const Home = ({ movies, hasError }: IProps) => {
+//* Root Component
+export default function Home({ movies, hasError }: IProps) {
   if (hasError) return <div>Something went wrong.</div>;
 
-  return <MoviesList movies={movies} />;
-};
+  return (
+    <PublicLayout>
+      <MoviesList movies={movies} />
+    </PublicLayout>
+  );
+}
 
+//^=============================================================================
+
+//* Server Side Rendering
 export async function getServerSideProps() {
   try {
     const response = await fetch(
@@ -21,6 +31,7 @@ export async function getServerSideProps() {
     );
     const data = await response.json();
     console.log(data);
+
     return {
       props: {
         movies: data,
@@ -36,5 +47,3 @@ export async function getServerSideProps() {
     };
   }
 }
-
-export default Home;
