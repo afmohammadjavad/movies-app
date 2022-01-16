@@ -3,7 +3,7 @@ import { Col, Row } from "antd";
 import style from "./Container.module.scss";
 
 interface IProps {
-  children: ReactElement;
+  children: ReactElement[];
   fluid?: boolean;
 }
 

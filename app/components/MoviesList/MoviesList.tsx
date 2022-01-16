@@ -1,6 +1,7 @@
 import { Col, Row } from "antd";
 import { IMovie } from "../../interfaces/IMovie";
 import Container from "../Container/Container";
+import Filter from "../Filter/Filter";
 import Movie from "../Movie/Movie";
 
 interface IProps {
@@ -20,6 +21,7 @@ const colProps = {
 const MoviesList = ({ movies }: IProps) => {
   return (
     <Container>
+      <Filter />
       <Row gutter={[0, 0]} style={{ textAlign: "center" }}>
         {movies.Search.map((item) => (
           <Col key={item.imdbID} {...colProps}>
