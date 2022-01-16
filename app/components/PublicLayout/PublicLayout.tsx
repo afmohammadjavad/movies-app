@@ -14,7 +14,7 @@ interface IProps {
 function PublicLayout({ children }: IProps): ReactElement {
   return (
     <ConfigProvider direction="ltr" locale={faIR}>
-      <Layout hasSider={false}>
+      <Layout hasSider={false} style={{minHeight: '100vh'}}>
         <Header />
         <Content>{children}</Content>
         <Footer />

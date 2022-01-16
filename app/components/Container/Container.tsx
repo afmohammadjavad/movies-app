@@ -13,16 +13,16 @@ const responsiveOptions = {
   md: 24,
   lg: 23,
   xl: 19,
-  xxl: 17
-}
+  xxl: 17,
+};
 
-export default function Container({ children, fluid, ...props }: IProps): ReactElement {
+function Container({ children, fluid, ...props }: IProps): ReactElement {
   const colProps = () => {
-    if (fluid) return {span: 24}
+    if (fluid) return { span: 24 };
 
-    return responsiveOptions
-  }
-  
+    return responsiveOptions;
+  };
+
   return (
     <div className={fluid ? style.containerFluid : style.container}>
       <Row justify="center" {...props}>
@@ -31,3 +31,5 @@ export default function Container({ children, fluid, ...props }: IProps): ReactE
     </div>
   );
 }
+
+export default Container;
