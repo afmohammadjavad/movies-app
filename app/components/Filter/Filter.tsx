@@ -17,6 +17,7 @@ function Filter({ search }: IProps): ReactElement {
             placeholder="Title"
             value={movieTitle}
             onChange={(e) => setMovieTitle(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && search(movieTitle)}
           />
         </Col>
         <Col>
